@@ -1,0 +1,128 @@
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: #7e54ff; */
+    z-index: 100;
+}
+.header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(50px);
+    z-index: -1;
+}
+
+.header::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #e0e1ef, transparent);
+    transition: .5s;
+}
+.header:hover:after{
+    left: 100%;
+}
+
+.logo{
+    font-size: 2rem;
+    color: #EEE;
+    font-weight: 700;
+}
+.logo span{
+    color: #1479d6;
+}
+.navbers a{
+    font-size: 1.15rem;
+    color: #EEE;
+    width: 500;
+    margin-left: 2rem;
+    background: none;
+    transition: .5s ease;
+}
+.navbers a:hover{
+    color: #1479d6;
+}
+
+.navbers a.active_navber{
+    color: #1479d6;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #1479d6;
+}
+#check{
+    display: none;
+}
+.icons{
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: #FFF;
+    cursor: pointer;
+    display: none;
+    background: none;
+}
+
+/* BREAK POINTS  */
+@media (max-width: 992px){
+    .header{
+        padding: 1.3rem 5%;
+    }
+}
+@media (max-width: 768px){
+    .icons{
+        display: inline-flex;
+    }
+    #check:checked~.icons #menu-icon{
+        display: none;
+    }
+    .icons #close-icon{
+        display: none;
+    }
+    #check:checked~.icons #close-icon{
+        display: block;
+    }
+    .navbers{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: rgba(0,0,0,.1);
+        backdrop-filter: blur(50px);
+        box-shadow: 0.5rem 1rem rgba(0,0,0,.1);
+        overflow: hidden;
+        transition: .3s ease;
+    }
+    #check:checked~.navbers{
+        height: 17.2rem;
+        overflow: hidden;
+    }
+    .navbers a{
+        display: block;
+        font-size: 1.1rem;
+        margin: 1rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        transition: .3s ease;
+    }
+   .active_navber{
+        color: #7e54ff !important;
+    }
+    #check:checked~.navbers a{
+        transform: translateY(0);
+        opacity: 1;
+        transition-duration: calc(.15s * var(--i));
+    }
+}

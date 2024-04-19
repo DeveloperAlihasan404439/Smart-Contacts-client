@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-file{
+  font-size: 12px;
+  margin-top: 3px;
+  background: white;
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+}
+
+::-webkit-file-upload-button{
+  color: white;
+  background: #081229;
+  padding: 8px;
+  border: none;
+  border-radius: 5px 5px 50px;
+}
+.dark ::-webkit-file-upload-button{
+  color: #081229;
+  background: #040914;
+}
+::-webkit-file-upload-button:hover{
+  background: #040914;
+}
+::-webkit-file-upload-button:hover{
+  background: #040914;
+}
